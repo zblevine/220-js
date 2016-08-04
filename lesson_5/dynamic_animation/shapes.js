@@ -30,18 +30,22 @@ $(function() {
   $("#start").click(function(e) {
     e.preventDefault();
 
-    var $shapes = $("#canvas > div");
+    var $shapes = $("#canvas > div"),
+        animate_shape = function($shape) {
+          $shape
+            .stop()
+            .css({ 
+              top: $shape.data("start_y") + "px",
+              left: $shape.data("start_x") + "px"
+            })
+            .animate({
+              top: $shape.data("end_y"),
+              left: $shape.data("end_x")
+            }, 1000);
+        };
+
     $.each($shapes, function(idx, shape) {
-      $(shape)
-        .stop()
-        .css({ 
-          top: $(shape).data("start_y") + "px",
-          left: $(shape).data("start_x") + "px"
-        })
-        .animate({
-          top: $(shape).data("end_y"),
-          left: $(shape).data("end_x")
-        }, 1000);
+      animate_shape($(shape));
     });
   });
 });
