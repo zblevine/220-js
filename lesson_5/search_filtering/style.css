@@ -1,0 +1,47 @@
+html {
+  background: #eee196;
+}
+
+body {
+  background: #fff;
+  width: 1000px;
+  margin: 0 auto;
+  font: normal 16px Helvetica, Arial, sans-serif;
+  overflow: hidden;
+}
+
+#categories {
+  width: 20%;
+  float: left;
+  font-size: 14px;
+}
+
+#games {
+  width: 80%;
+  float: left;
+}
+
+main {
+  overflow: hidden;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  padding-left: 10px;
+  list-style-type: none;
+}
+
+#games li {
+  height: 40px;
+  padding-top: 10px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+#games li:last-child {
+  border-bottom: none;
+} 

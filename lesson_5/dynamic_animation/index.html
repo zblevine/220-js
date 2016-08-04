@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="shapes.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    <div id="canvas">
+      
+    </div>
+
+    <a href="#" id="start">Start</a> | <a href="#" id="stop">Stop</a>
+
+    <h1>Add a shape</h1>
+
+    <h2>Type</h2>
+    
+    <form action="#">
+      <label><input type="radio" id="shapes" name="shapes" value="square" />Square</label>
+      <label><input type="radio" id="shapes" name="shapes" value="circle" />Circle</label>
+      <label><input type="radio" id="shapes" name="shapes" value="star" />Star</label>
+
+      <p>Starting Point</p>
+      <input type="number" name="x-start" placeholder="x:" />
+      <input type="number" name="y-start" placeholder="y:" />
+
+      <p>Ending Point</p>
+      <input type="number" name="x-end" placeholder="x:" />
+      <input type="number" name="y-end" placeholder="y:" />
+
+      <input type="submit" value="Add" />
+    </form>
+  </main>
+</body>
+</html>
