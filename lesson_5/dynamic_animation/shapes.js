@@ -11,9 +11,11 @@ $(function() {
         end_y = inputs[4].value;
 
     $new_shape.addClass(ns_class);
-    $new_shape.css("top", start_y + "px");
-    $new_shape.css("left", start_x + "px");
-
+    $new_shape.css({
+      top: start_y + "px",
+      left: start_x + "px"
+    });
+        
     $new_shape.data("start_x", start_x);
     $new_shape.data("start_y", start_y);
     $new_shape.data("end_x", end_x);
