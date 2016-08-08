@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guess a word!</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
+  <script src="game.js"></script>
+</head>
+<body>
+  <main>
+    <img src="images/tree.png" alt="tree!" />
+    <div class="apples six">
+
+    </div>
+
+    <p id="lose_text">Oh no! You're out of guesses!</p>
+    <p id="win_text">You guessed it! You were right!</p>
+    <p id="no_more">All out of words!</p>
+
+    <a href="#" id="play_again">Play Again</a>
+
+    <div class="word" id="game_word">
+      <h2>Word:</h2>
+    </div>
+
+    <div class="word" id="guesses">
+      <h2>Guesses:</h2>
+    </div>
+  </main>
+</body>
+</html>
