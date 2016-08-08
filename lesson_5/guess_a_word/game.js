@@ -86,6 +86,8 @@ $(function() {
       current_game = Object.create(Game);
       current_game.init();
       console.log(current_game);
+
+      $(".apples").attr("class", "apples six");
     } else {
       $("body").addClass("done");
     }
