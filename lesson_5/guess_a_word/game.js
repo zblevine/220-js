@@ -1,4 +1,39 @@
 $(function() {
+  function keypressHandler(e) {
+    var letter = String.fromCharCode(e.which);
+    if(!letter.match(/[a-z]/i)) {
+      return;
+    }
+    if(!current_game.guessed.includes(letter)) {
+      current_game.guessed.push(letter);
+      $("#guesses").append("<span class='letter'>" + letter + "</span>\n");
+      
+      var num_blanks = current_game.fill_blanks(letter);
+      if(num_blanks > 0) {
+        current_game.correct += num_blanks;
+        if(current_game.correct === current_game.word.length) {
+          $("body").addClass("win").animate({
+            backgroundColor: "#06c"
+          }, 1000);
+
+          $(document).off("keypress");
+        }
+      } else {
+        $(".apples").toggleClass(classes[current_game.incorrect]);
+        current_game.incorrect += 1;
+        $(".apples").toggleClass(classes[current_game.incorrect]);
+
+        if(current_game.incorrect === current_game.max_wrong) {
+          $("body").addClass("lose").animate({
+            backgroundColor: "#b00b00"
+          }, 1000);
+
+          $(document).off("keypress");
+        }
+      }
+    }
+  }
+
   var words = ["bulls", "mavericks", "thunder", "magic", "knickerbockers", "trailblazers"],
       randomWord = function() {
         function randInt(num) {
@@ -39,43 +74,14 @@ $(function() {
           this.word = randomWord(words),
           this.guessed = new_arr,
           this.setup_blanks();
+          $(document).on("keypress", keypressHandler);
         },
       },
       current_game = Object.create(Game);
 
   current_game.init();
 
-  $(document).on("keypress", function(e) {
-    var letter = String.fromCharCode(e.which);
-    if(!letter.match(/[a-z]/i)) {
-      return;
-    }
-    console.log(current_game.guessed);
-    if(!current_game.guessed.includes(letter)) {
-      current_game.guessed.push(letter);
-      $("#guesses").append("<span class='letter'>" + letter + "</span>\n");
-      
-      var num_blanks = current_game.fill_blanks(letter);
-      if(num_blanks > 0) {
-        current_game.correct += num_blanks;
-        if(current_game.correct === current_game.word.length) {
-          $("body").addClass("win").animate({
-            backgroundColor: "#06c"
-          }, 1000);
-        }
-      } else {
-        $(".apples").toggleClass(classes[current_game.incorrect]);
-        current_game.incorrect += 1;
-        $(".apples").toggleClass(classes[current_game.incorrect]);
-
-        if(current_game.incorrect === current_game.max_wrong) {
-          $("body").addClass("lose").animate({
-            backgroundColor: "#b00b00"
-          }, 1000);
-        }
-      }
-    }
-  });
+  
 
   $("#play_again").click(function(e) {
     e.preventDefault();
@@ -85,8 +91,6 @@ $(function() {
       $("body").attr("style", "");
       current_game = Object.create(Game);
       current_game.init();
-      console.log(current_game);
-
       $(".apples").attr("class", "apples six");
     } else {
       $("body").addClass("done");
