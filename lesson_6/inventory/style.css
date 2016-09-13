@@ -1,0 +1,86 @@
+body {
+  font: normal 16px Helvetica, Arial, sans-serif;
+  background: #ccc;
+}
+
+main {
+  width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+input[type="text"] {
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  height: 30px;
+  width: 300px;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+input[type="submit"] {
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  height: 40px;
+  width: 150px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.partial {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.partial input[type="text"] {
+  width: 100px;
+}
+
+#order {
+  background-color: #06c;
+}
+
+#add {
+  background-color: #0c3;
+  text-shadow: 1px 1px 1px #666;
+  margin-top: 20px;
+}
+
+#state {
+  width: 35px;
+}
+
+#zip {
+  width: 75px;
+}
+
+dt {
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+dd {
+  margin-left: 0;
+}
+
+#toohigh {
+  margin-top: 5px;
+}
+
+.partial + h2 {
+  margin-top: 0;
+}
+
+#item_stock_number_id {
+  width: 100px;
+}
+
+#item_quantity_id {
+  width: 75px;
+}

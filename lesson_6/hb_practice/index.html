@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>handlebars</title>
+  <script src="/Users/zblevine/Documents/launch-school/support-files/handlebars.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="hb.js"></script>
+</head>
+<body>
+  <script id="blog_template" type="text/x-handlebars">
+    {{#each .}}
+      <h1>{{title}}</h1>
+
+      <p><em>Published {{pub_date}}</em></p>
+      {{{post_body}}}
+      <span style="font-size:14px"><em>Tags:
+      {{#if tags}}
+        {{#each tags}}
+        {{> tag_template}}
+        {{/each}}
+      {{else}}
+        None
+      {{/if}}
+      </em></span>
+    {{/each}}
+  </script>
+
+  <script id="tag_template" type="text/x-handlebars">
+    <span><a href="">{{.}}</a> </span>
+  </script>
+</body>
+</html>
