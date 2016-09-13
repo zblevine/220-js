@@ -5,10 +5,10 @@ $(function() {
       currPhotoId: function() {
         return position % 3 + 1;
       },
-      addOne: function() {
+      next: function() {
         position += 1;
       },
-      subtractOne: function() {
+      prev: function() {
         if(position == 0) {
           position += 3;
         }
@@ -40,9 +40,11 @@ $(function() {
           if(this.is_init) {
             this.clearFigure();
             this.appendDescription(resp_body);
+            this.bindButtonEvents();
             this.fadeInFigure(curr_photo_template);
           } else {
             this.appendDescription(resp_body);
+            this.bindButtonEvents();
             $("#slides").append(curr_photo_template);
             this.is_init = true;
           }
@@ -51,6 +53,8 @@ $(function() {
     },
     appendDescription: function(resp_body) {
       $("#description").append(description_template(resp_body));
+    },
+    bindButtonEvents: function() {
       $("#likes").on("click", $.proxy(this.addLike, this));
       $("#favorites").on("click", $.proxy(this.addFavorite, this));
     },
@@ -111,13 +115,13 @@ $(function() {
     },
     moveLeft: function(e) {
       e.preventDefault();
-      slideshow_tracker.subtractOne();
+      slideshow_tracker.prev();
       var curr_id = slideshow_tracker.currPhotoId();
       this.loadPhoto(curr_id);
     },
     moveRight: function(e) {
       e.preventDefault();
-      slideshow_tracker.addOne();
+      slideshow_tracker.next();
       var curr_id = slideshow_tracker.currPhotoId();
       this.loadPhoto(curr_id);
     },
