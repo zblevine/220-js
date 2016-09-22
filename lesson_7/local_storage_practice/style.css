@@ -1,0 +1,45 @@
+body {
+  font: 16px normal Helvetica, Arial, sans-serif;
+}
+
+main {
+  width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 15px;
+}
+
+label {
+  display: block;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+nav ul {
+  padding: 0;
+  list-style: none;
+}
+nav li {
+  display: inline;
+  padding: 0 3px 0 0;
+}
+nav a {
+  display: inline-block;
+  padding: 8px 15px;
+  text-decoration: none;
+  color: #333333;
+  background: #FFFFCB;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  box-shadow: -1px 0 3px rgba(0, 0, 0, .3);
+}
+nav a.active {
+  color: #b00b00;
+  background: #CBFFE3;
+}
+
+p + p {
+  display: none;
+}
