@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Todo List</title>
+    <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <input type="checkbox" id="left-toggle" />
+    <label for="left-toggle"></label>
+    <main>
+      <div id="left-col">
+        <table id="table1">
+          <tr class="highlight">
+            <td>All Todos</td>
+            <td><span class="circle total_count">0</span></td>
+          </tr>
+          <script id="list_template" type="text/x-handlebars">
+            <tr class="date_list">
+              <td>{{date}}</td>
+              <td><span class="circle">{{amount}}</span></td>
+            </tr>
+          </script>
+        </table>
+
+        <table id="table2">
+          <tr><td>Completed</td><td><span class="circle comp_count">0</span></td></tr>
+          <script id="comp_list_template" type="text/x-handlebars">
+            <tr class="date_comp_list">
+              <td class="done">{{date}}</td>
+              <td><span class="circle">{{amount}}</span></td>
+            </tr>
+          </script>
+        </table>
+      </div>
+
+      <div id="right-col">
+        <div id="list-head"><h2>All Todos</h2><span class="circle total_count">0</span></div>
+        <table id="todo_list">
+          <thead>
+            <tr>
+              <td colspan="2" class="new_todo">Add new to do</td>
+            </tr>
+          </thead>
+          <tbody>
+            <script id="todo_template" type="text/x-handlebars">
+              <tr>
+                <td><a href="">{{title}} - <span class="due_date">{{month}}/{{year}}</span></a></td>
+                <td></td>
+              </tr>
+            </script>
+
+            <script id="no_date_template" type="text/x-handlebars">
+              <tr>
+                <td><a href="">{{title}} - <span class="due_date">No Due Date</span></a></td>
+                <td></td>
+              </tr>
+            </script>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <div>
+      <div class="modal">
+        <div>
+          <form action="">
+            <dl>
+              <dt>Title</dt>
+              <dd><input type="text" placeholder="Item 1" id="title"/></dd>
+              <dt>Due Date</dt>
+              <dd>
+                <select name="Day" id="day">
+                </select>
+
+                <select name="Month" id="month">
+                </select>
+
+                <select name="Year" id="year">
+                </select>
+              </dd>
+              <dt id="desc_label">Description</dt>
+              <dd><textarea placeholder="Description" id="desc"></textarea></dd>
+            </dl>
+            <div id="buttons">
+              <input type="button" value="Save" class="save_btn" />
+              <input type="button" value="Toggle Complete" class="complete_btn">
+            </div>
+          </form>
+
+          <a href="">Close</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
